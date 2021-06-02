@@ -1,0 +1,94 @@
+/******************************* 1ere methode : appel d une procedure dans un algorithme*****************************/
+
+PROCEDURE procedureProduitScalaire (n:INTEGER v: ARRAY_OF FLOAT[n],u: ARRAY_OF FLOAT[n])
+VAR
+  i:INTEGER;
+  p:FLOAT;  
+BEGIN
+  p:=0;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    p:=p+v[i]*u[i];
+        
+    END_FOR
+
+    write ("le produit scalaire des vecteurs v et u est :" p);
+
+   
+      
+       IF (p=0) THEN
+          write("les vecteurs v et u sont orthogonaux");
+       ELSE
+         write("les vecteurs v et u ne sont pas  orthogonaux");
+       END_IF
+   
+END
+
+ALGORITHM DotProductProcedure
+VAR
+ v,u : ARRAY_OF FLOAT[n];
+ n:INTEGER;
+BEGIN
+ Write("donner un longueur de vecteurs a votre choix "); 
+   Read(n);
+ FOR i FROM 0 TO n-1 STEP step  DO
+  Write ("entrer un element de vecteur v a votre choix; ");
+ Read (v[i]);
+ END_FOR  
+ 
+FOR i FROM 0 TO n-1 STEP step  DO
+  Write ("entrer un element de vecteur u a votre choix; ");
+ Read (u[i]);
+END_FOR
+  procedureProduitScalaire (n,v,u);
+
+     
+END
+
+/******************************* 2eme methode : appel d une foction dans un algorithme*****************************/
+
+FUNCTION fonctionProduitScalaire (n:INTEGER , v: ARRAY_OF FLOAT[n] , u: ARRAY_OF FLOAT[n]) float
+VAR
+  i:INTEGER;
+  p:FLOAT;  
+BEGIN
+  p:=0;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    p:=p+v[i]*u[i];
+        
+    END_FOR
+
+   return p;
+   
+END
+
+
+ALGORITHM DotProductFonction 
+VAR
+ 
+ v,u : ARRAY_OF FLOAT[n];
+ ps:float;
+ n:INTEGER;
+BEGIN
+ Write("donner un longueur de vecteurs a votre choix "); 
+   Read(n);
+ FOR i FROM 0 TO n-1 STEP step  DO
+  Write ("entrer un element de vecteur v a votre choix; ");
+ Read (v[i]);
+ END_FOR  
+ 
+FOR i FROM 0 TO n-1 STEP step  DO
+  Write ("entrer un element de vecteur u a votre choix; ");
+ Read (u[i]);
+END_FOR
+
+ 
+    
+ ps:=fonctionProduitScalaire(n,v,u);
+  IF (ps=0) THEN
+  write("les vecteurs v et u sont orthogonaux");
+  ELSE
+ write("les vecteurs v et u ne sont pas  orthogonaux");
+END_IF
+
+      
+END
